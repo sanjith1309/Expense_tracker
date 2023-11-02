@@ -10,20 +10,32 @@ class ExpenseItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(expense.title),
+            Text(
+              expense.title,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
             const SizedBox(
               height: 4,
             ),
             Row(
               children: [
-                Text('₹${expense.amount.toStringAsFixed(2)}'),
+                Text(
+                  '₹${expense.amount.toStringAsFixed(2)}',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
                 const Spacer(),
                 Row(
                   children: [
-                      Icon(CategoryIcons[expense.category]),
-                      const SizedBox(width: 8,),
-                      Text(expense.formatteddate),
+                    Icon(CategoryIcons[expense.category]),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      expense.formatteddate,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
                   ],
                 )
               ],
