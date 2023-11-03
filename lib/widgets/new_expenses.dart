@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:exptracker/models/expense.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -195,58 +193,42 @@ class _newExpenseState extends State<newExpense> {
                         ),
                       )
                     ],
-                  ),
-                if (Constraints.maxWidth >= 600)
-                  Row(
-                    children: [
-                      const Spacer(),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text("Cancel")),
-                      ElevatedButton(
-                        onPressed: _submitExpenseData,
-                        child: Text("Save Expense"),
-                      ),
-                    ],
-                  )
-                else
-                  Row(
-                    children: [
-                      DropdownButton(
-                        value: _selectedCategory,
-                        items: Category.values
-                            .map(
-                              (category) => DropdownMenuItem(
-                                value: category,
-                                child: Text(
-                                  category.name.toUpperCase(),
-                                ),
+                  ),git
+                Row(
+                  children: [
+                    DropdownButton(
+                      value: _selectedCategory,
+                      items: Category.values
+                          .map(
+                            (category) => DropdownMenuItem(
+                              value: category,
+                              child: Text(
+                                category.name.toUpperCase(),
                               ),
-                            )
-                            .toList(),
-                        onChanged: (value) {
-                          if (_selectedCategory == null) {
-                            return;
-                          }
-                          setState(() {
-                            _selectedCategory = value!;
-                          });
+                            ),
+                          )
+                          .toList(),
+                      onChanged: (value) {
+                        if (_selectedCategory == null) {
+                          return;
+                        }
+                        setState(() {
+                          _selectedCategory = value!;
+                        });
+                      },
+                    ),
+                    const Spacer(),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
                         },
-                      ),
-                      const Spacer(),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text("Cancel")),
-                      ElevatedButton(
-                        onPressed: _submitExpenseData,
-                        child: Text("Save Expense"),
-                      ),
-                    ],
-                  ),
+                        child: const Text("Cancel")),
+                    ElevatedButton(
+                      onPressed: _submitExpenseData,
+                      child: Text("Save Expense"),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
